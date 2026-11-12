@@ -2,266 +2,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<title>Chnarok | Urban Planning Project</title>
+  <title>Chnarok | Urban Planning Project</title>
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(
+        135deg,
+        #101c30,
+        #243e60
+      );
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #edf1f5;
-  color: #17263d;
-}
+    .container {
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
 
-header {
-  background: #14253d;
-  color: white;
-  text-align: center;
-  padding: 22px 12px;
-}
+    .tag {
+      display: inline-block;
+      padding: 9px 16px;
+      border: 1px solid #7891ad;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
 
-header h1 {
-  font-size: clamp(18px, 4vw, 28px);
-  margin: 0 0 8px;
-}
+    h1 {
+      font-size: clamp(30px, 6vw, 52px);
+      line-height: 1.2;
+      margin: 0 0 18px;
+    }
 
-header p {
-  font-size: 13px;
-  margin: 0;
-  opacity: 0.8;
-}
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #c9d6e5;
+      margin-bottom: 35px;
+    }
 
-.version {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 6px 12px;
-  background: #16a34a;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
-}
+    .button {
+      display: inline-block;
+      padding: 17px 35px;
+      background: white;
+      color: #14253d;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 12px;
+      transition: 0.2s;
+    }
 
-.toolbar {
-  background: white;
-  padding: 12px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
+    .button:hover {
+      background: #e2eaf4;
+      transform: translateY(-2px);
+    }
 
-.download {
-  display: inline-block;
-  background: #14253d;
-  color: white;
-  padding: 11px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 14px;
-}
+    .footer {
+      margin-top: 45px;
+      color: #aebfd2;
+      font-size: 13px;
+    }
 
-#status {
-  text-align: center;
-  padding: 25px;
-  font-size: 15px;
-}
+    @media (max-width: 600px) {
+      .button {
+        width: 100%;
+        max-width: 320px;
+      }
 
-#viewer {
-  width: 100%;
-  max-width: 1200px;
-  padding: 12px;
-  margin: auto;
-}
-
-.page {
-  width: 100%;
-  margin-bottom: 16px;
-  background: white;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.page canvas {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-footer {
-  padding: 20px;
-  text-align: center;
-  color: #64748b;
-  font-size: 12px;
-}
-
-@media (max-width: 600px) {
-  header {
-    padding: 16px 10px;
-  }
-
-  #viewer {
-    padding: 5px;
-  }
-
-  .page {
-    margin-bottom: 8px;
-    border-radius: 2px;
-  }
-}
-</style>
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Chnarok Urban Planning Project</h1>
-  <p>Sulaimani Polytechnic University</p>
-  <span class="version">Version 3 - Mobile Fix Test</span>
-</header>
+  <main class="container">
 
-<div class="toolbar">
-  <a class="download"
-     href="./chnarok.pdf"
-     download>
-    Download Original PDF
-  </a>
-</div>
+    <div class="tag">
+      URBAN PLANNING PROJECT
+    </div>
 
-<div id="status" role="status">
-  Loading PDF pages...
-</div>
+    <h1>
+      Chnarok Neighborhood
+    </h1>
 
-<main id="viewer"></main>
+    <p>
+      Sulaimani Polytechnic University
+      <br>
+      City Planning Engineering
+      <br>
+      Explore our urban planning project.
+    </p>
 
-<footer>
-  Chnarok Urban Planning Project
-</footer>
+    <a
+      class="button"
+      href="./chnarok.pdf"
+      target="_blank"
+      rel="noopener noreferrer">
+      Our Project Detail
+    </a>
 
-<script type="module">
-import * as pdfjsLib from
-"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs";
+    <div class="footer">
+      Chnarok | Urban Planning Project
+    </div>
 
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
-
-const viewer = document.getElementById("viewer");
-const status = document.getElementById("status");
-
-let documentPDF = null;
-let rendering = false;
-let rerender = false;
-
-async function renderPages() {
-  if (!documentPDF) return;
-
-  if (rendering) {
-    rerender = true;
-    return;
-  }
-
-  rendering = true;
-
-  try {
-    do {
-      rerender = false;
-      viewer.replaceChildren();
-      status.textContent = "Rendering PDF pages...";
-      status.hidden = false;
-
-      for (let number = 1;
-           number <= documentPDF.numPages;
-           number++) {
-
-        if (rerender) break;
-
-        const page = await documentPDF.getPage(number);
-        const base = page.getViewport({scale: 1});
-
-        const width = viewer.clientWidth;
-        const scale = width / base.width;
-        const viewport = page.getViewport({scale});
-
-        const pixelRatio = Math.min(
-          window.devicePixelRatio || 1, 2
-        );
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "page";
-
-        const canvas = document.createElement("canvas");
-        const context = canvas.getContext("2d");
-
-        if (!context) {
-          throw new Error("Canvas unavailable");
-        }
-
-        canvas.width = Math.ceil(
-          viewport.width * pixelRatio
-        );
-
-        canvas.height = Math.ceil(
-          viewport.height * pixelRatio
-        );
-
-        wrapper.appendChild(canvas);
-        viewer.appendChild(wrapper);
-
-        await page.render({
-          canvasContext: context,
-          viewport,
-          transform: [
-            pixelRatio, 0, 0,
-            pixelRatio, 0, 0
-          ]
-        }).promise;
-      }
-    } while (rerender);
-
-    status.hidden = true;
-  } catch (error) {
-    console.error(error);
-    status.textContent =
-      "Unable to display PDF. Please download it.";
-  } finally {
-    rendering = false;
-  }
-}
-
-async function start() {
-  try {
-    documentPDF = await pdfjsLib.getDocument({
-      url: "./chnarok.pdf"
-    }).promise;
-
-    await renderPages();
-  } catch (error) {
-    console.error(error);
-    status.textContent =
-      "PDF could not be loaded. Use Download Original PDF.";
-  }
-}
-
-let resizeTimeout;
-
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(renderPages, 300);
-});
-
-start();
-</script>
+  </main>
 
 </body>
 </html>
